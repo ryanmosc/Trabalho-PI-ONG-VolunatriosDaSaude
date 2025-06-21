@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ============ 3. ANIMAÇÃO DO FORMULÁRIO ============
   const formElements = document.querySelectorAll(".donation-form *:not(button)");
-  
+
   gsap.from(".donation-form", {
     scrollTrigger: {
       trigger: ".donation-form",
@@ -126,3 +126,59 @@ document.addEventListener('DOMContentLoaded', () => {
     ease: "power2.out"
   });
 });
+// ============ 5. QRCODE DE DOAÇÃO ================
+
+
+
+
+const frequencySelect = document.getElementById('frequency');
+const qrcodeDiv = document.getElementById('qrcode');
+const qrcodeImg = document.getElementById('qrcode-img');
+const miniForm = document.getElementById('mini-form');
+let qrCodeEventsActive = true;
+
+// Função para ativar/desativar os eventos do QR code
+function toggleQRCodeEvents(active) {
+  qrCodeEventsActive = active;
+  if (!active) {
+    qrcodeDiv.style.display = 'none';
+  }
+}
+
+// Função para exibir o QR code
+function showQRCode(button) {
+  if (qrCodeEventsActive) {
+    const value = button.getAttribute('data-value');
+    qrcodeImg.src = `adicionais/pix/pix${value}.png`;
+    qrcodeDiv.style.display = 'block';
+  }
+}
+
+// Função para ocultar o QR code
+function hideQRCode() {
+  if (qrCodeEventsActive) {
+    qrcodeDiv.style.display = 'none';
+  }
+}
+
+// Adicionar eventos aos botões apenas se o QR code estiver ativo
+const buttons = document.querySelectorAll('.donation-options button, .donate-other');
+buttons.forEach(button => {
+  button.addEventListener('mouseover', () => showQRCode(button));
+  button.addEventListener('mouseout', hideQRCode);
+});
+
+// Controlar a exibição do mini formulário e QR code com base na seleção
+frequencySelect.addEventListener('change', () => {
+  const selectedOption = frequencySelect.value;
+  if (selectedOption === 'mensal') {
+    toggleQRCodeEvents(false); // Desativa os eventos do QR code
+    miniForm.style.display = 'block'; // Exibe o mini formulário
+    qrcodeDiv.style.display = 'none'; // Garante que o QR code esteja oculto
+  } else {
+    toggleQRCodeEvents(true); // Reativa os eventos do QR code
+    miniForm.style.display = 'none'; // Oculta o mini formulário
+  }
+});
+
+

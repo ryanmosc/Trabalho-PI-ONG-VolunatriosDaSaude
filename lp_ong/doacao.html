@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="src/styles/footer.css">
     <link rel="stylesheet" href="src/styles/doacao.css">
     <link rel="stylesheet" href="src/styles/navbar.css">
-     <!----------->
+    <!----------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 </head>
@@ -21,7 +21,6 @@
         <nav id="navbar">
             <a href="doacao.html"><img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img"></a>
 
-
             <ul id="nav_list">
                 <li class="nav-item active"><a href="index.html">Início</a></li>
                 <li class="nav-item"><a href="sobreNos.html">Sobre nós</a></li>
@@ -30,7 +29,8 @@
             </ul>
 
             <div class="navbar-buttons">
-                <a href="seja_voluntario.html"><button class="btn-default2"><strong>Seja Voluntário</strong></button></a>
+                <a href="seja_voluntario.html"><button class="btn-default2"><strong>Seja
+                            Voluntário</strong></button></a>
                 <a href="doacao.html" class="btn-default"><strong>Doe Agora</strong></a>
             </div>
             <button id="mobile_btn">
@@ -64,31 +64,42 @@
                 </p>
             </div>
 
-            <form class="donation-form">
+            <form class="donation-form" action="https://formsubmit.co/ryanoliveiramosc.com.098@gmail.com" method="POST">
                 <label for="frequency">Escolha a periodicidade e o valor da doação:</label>
                 <select id="frequency" name="frequency">
-                    <option>Mensal</option>
-                    <option>Única</option>
+                    <option value="unica">Única</option>
+                    <option value="mensal">Mensal</option>
                 </select>
 
                 <div class="donation-options">
-                    <button type="button">R$10</button>
-                    <button type="button">R$50</button>
-                    <button type="button">R$100</button>
-                    <button type="button">R$200</button>
+                    <button type="button" data-value="10">R$10</button>
+                    <button type="button" data-value="50">R$50</button>
+                    <button type="button" data-value="100">R$100</button>
+                    <button type="button" data-value="200">R$200</button>
                 </div>
 
-                <button type="button" class="donate-other">DOAR OUTRO VALOR</button>
+                <button type="button" class="donate-other" data-value="custom">DOAR OUTRO VALOR</button>
 
-                <h2>Dados Pessoais:</h2>
-                <input type="text" placeholder="Nome*" required>
-                <input type="email" placeholder="Email*" required>
-                <input type="text" placeholder="Número de Telefone*" required>
-                <input type="text" placeholder="Data de Nascimento*" required>
+                <div id="qrcode" style="display: none;">
+                    <img src="" alt="QR Code de Doação" id="qrcode-img" style="max-width: 128px;">
+                </div>
 
-                <h2>Escolha a Forma de Doação:</h2>
-                <input type="text" placeholder="CPF*" required>
-                <input type="text" placeholder="Forma de Doação*" required>
+                <div class="mini-form" id="mini-form">
+                    <label for="card-name">Nome no cartão:</label>
+                    <input type="text" id="card-name" name="card-name" placeholder="Digite o nome no cartão" required>
+
+                    <label for="card-number">Número do cartão:</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="Digite o número do cartão"
+                        required>
+
+                    <label for="expiry-date">Data de validade:</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="Digite o CVV" required>
+
+                    <button type="submit" class="btn-formulario">Enviar</button>
+                </div>
             </form>
         </section>
     </main>
@@ -148,6 +159,7 @@
     </footer>
     <script src="src/scripts/doacao.js"></script>
     <script src="src/scripts/navbar.js"></script>
+
 </body>
 
 </html>
