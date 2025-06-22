@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = this.querySelector(".botao-enviar");
     const originalText = btn.textContent;
     
-    // Animação de carregamento
+
     gsap.to(btn, {
       duration: 0.3,
       backgroundColor: "#4CAF50",
@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
       onComplete: () => {
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         
-        // Simulação de envio (substitua pelo AJAX real)
+
         setTimeout(() => {
           btn.innerHTML = '<i class="fas fa-check"></i> Enviado!';
           
-          // Reset após 2 segundos
+
           setTimeout(() => {
             gsap.to(btn, {
               duration: 0.3,

@@ -50,13 +50,15 @@
                 <h1 class="formulario-titulo">Cadastro de Voluntário</h1>
                 <form class="formulario-voluntario" action="https://formspree.io/f/xzzgjpbr" method="POST">
                     <label for="nome-completo">Nome Completo</label>
-                    <input type="text" id="nome-completo" name="nome_completo" required />
+                    <input type="text" id="nome-completo" name="nome_completo" placeholder="Nome completo..."
+                        required />
 
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required />
+                    <input type="email" id="email" name="email" placeholder="Insira seu melhor E-mail..." required />
 
                     <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" name="telefone" required />
+                    <input type="tel" id="telefone" name="telefone"
+                        placeholder="Insira seu melhor número pata contato..." required />
 
                     <label for="disponibilidade">Disponibilidade</label>
                     <select id="disponibilidade" name="disponibilidade" required>
@@ -67,16 +69,20 @@
                     </select>
 
                     <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua Mensagem" required></textarea>
+                    <textarea id="mensagem" name="mensagem" placeholder="Escreva o por que deseja se voluntariar..."
+                        required></textarea>
 
                     <!-- Proteção contra bots -->
                     <input type="text" name="_gotcha" style="display:none">
+                    <input type="hidden" name="_captcha" value="true">
 
                     <!-- Redirecionamento pós envio -->
                     <input type="hidden" name="_redirect"
                         value="https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/seja_voluntario.html">
 
-                    <button type="submit" class="botao-enviar">Enviar Cadastro</button>
+                    <button type="submit" class="botao-enviar" onclick="this.innerText='Enviando...';">Enviar
+                        Cadastro</button>
+
                 </form>
 
 

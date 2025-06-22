@@ -11,17 +11,17 @@
   --color-neutral-4: #f8f9fa;
 }
 
-/* Container geral do formulário */
+
 .secao-voluntario {
   margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
-  background-color: var(--color-neutral-4); /* opcional: mantém harmonia com o resto do site */
+  background-color: var(--color-neutral-4); 
 }
 
-/* Caixa do formulário */
+
 .formulario-container {
   background-color: white;
   padding: 2rem;
@@ -31,7 +31,7 @@
   max-width: 500px;
 }
 
-/* Título */
+
 .formulario-titulo {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -39,32 +39,41 @@
   font-size: 1.8rem;
 }
 
-/* Formulário */
+
 .formulario-voluntario {
   display: flex;
   flex-direction: column;
 }
 
-/* Labels */
+
 .formulario-voluntario label {
   font-weight: 600;
   margin-bottom: 5px;
   color: var(--color-neutral-1);
 }
 
-/* Inputs e select */
+
 .formulario-voluntario input,
-.formulario-voluntario select {
+.formulario-voluntario select,
+.formulario-voluntario textarea {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid var(--color-neutral-3);
   border-radius: 6px;
   background-color: var(--color-primary-2);
   transition: border-color 0.3s;
+  font-family: inherit; 
+  font-size: inherit; 
+}
+
+
+.formulario-voluntario textarea {
+    resize: vertical; 
 }
 
 .formulario-voluntario input:focus,
-.formulario-voluntario select:focus {
+.formulario-voluntario select:focus,
+.formulario-voluntario textarea:focus { 
   border-color: var(--color-primary-5);
   outline: none;
 }
