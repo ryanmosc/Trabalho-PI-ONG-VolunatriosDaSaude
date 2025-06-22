@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/styles/styles.css">
     <link rel="stylesheet" href="src/styles/navbar.css">
-    
+
     <title>Cadastro de Voluntário - Hospital</title>
 
 </head>
@@ -48,8 +48,9 @@
         <section class="secao-voluntario">
             <div class="formulario-container">
                 <h1 class="formulario-titulo">Cadastro de Voluntário</h1>
-                <form class="formulario-voluntario" action="https://formsubmit.co/ryanoliveiramosc.com.098@gmail.com" method="POST">
-                    
+                <form class="formulario-voluntario" action="https://formsubmit.co/voluntariosfaleconosco@gmail.com"
+                    method="POST">
+
                     <label for="nome-completo">Nome Completo</label>
                     <input type="text" id="nome-completo" name="nome_completo" required />
 
@@ -66,10 +67,16 @@
                         <option value="meio_de_semana">Meio de semana</option>
                         <option value="ambos">Ambos</option>
                     </select>
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea name="mensagem" placeholder="Escreva sua Mensagem" required></textarea>
+                    </div>
 
                     <!-- Campos ocultos opcionais -->
-                    
-                    <input type="hidden" name="_captcha" value="false">
+
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/seja_voluntario.html">
+
 
                     <button type="submit" class="botao-enviar">Enviar Cadastro</button>
                 </form>

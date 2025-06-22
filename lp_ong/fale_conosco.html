@@ -20,7 +20,8 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="fale_conosco.html"><img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img"></a>
+            <a href="fale_conosco.html"><img src="src/img/Amigos Solidários.png" alt="Amigos Solidários"
+                    class="nav_img"></a>
 
 
             <ul id="nav_list">
@@ -31,7 +32,8 @@
             </ul>
 
             <div class="navbar-buttons">
-                <a href="seja_voluntario.html"><button class="btn-default2"><strong>Seja Voluntário</strong></button></a>
+                <a href="seja_voluntario.html"><button class="btn-default2"><strong>Seja
+                            Voluntário</strong></button></a>
                 <a href="doacao.html" class="btn-default"><strong>Doe Agora</strong></a>
             </div>
             <button id="mobile_btn">
@@ -57,26 +59,31 @@
 
             <div class="contact-form-area">
                 <h1>Fale Conosco</h1>
-                <form action="https://formsubmit.co/ryanoliveiramosc.com.098@gmail.com" method="POST">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
+                <form class="formulario-voluntario" action="https://formsubmit.co/voluntariosfaleconosco@gmail.com"
+                    method="POST">
+
+
 
                     <div class="form-group">
                         <label>Nome Completo</label>
-                        <input type="text" name="nome" placeholder="Coloque seu Nome" required>
+                        <input type="text" name="text" placeholder="Nome Completo" required>
                     </div>
 
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input type="email" name="email" placeholder="Coloque seu E-mail" required>
+                        <input type="email" name="email" placeholder="Endereço de e-mail" required>
+
+
                     </div>
 
                     <div class="form-group">
                         <label>Mensagem</label>
                         <textarea name="mensagem" placeholder="Escreva sua Mensagem" required></textarea>
                     </div>
+
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/fale_conosco.html">
+
 
                     <button type="submit" class="btn-formulario">Nos Contate</button>
                 </form>
