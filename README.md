@@ -77,7 +77,8 @@ Além disso, nosso trabalho está conectado com os **Objetivos de Desenvolviment
 
 git clone https://github.com/yanmosc/Trabalho-PI-ONG-VoluntariosDaSaude.git
 cd Trabalho-PI-ONG-VoluntariosDaSaude
-Equipe
+
+*Equipe*
 Ryan Oliveira Moscardini – Gerente do Projeto
 
 Cauê Vinícius Silva – Desenvolvedor
