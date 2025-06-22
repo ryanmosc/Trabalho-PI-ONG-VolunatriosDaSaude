@@ -70,7 +70,7 @@ Além disso, nosso trabalho está conectado com os **Objetivos de Desenvolviment
 ### Instruções
 
 1. **Acesse a Landing Page online:**  
-   [https://yanmosc.github.io/Trabalho-PI-ONG-VoluntariosDaSaude/lp_ong](https://ryanmosc.github.io/Trabalho-PI-ONG-VoluntariosDaSaude/lp_ong)
+   [https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/](https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/)
 
 2. **Para rodar localmente:**
 
