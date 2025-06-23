@@ -79,11 +79,11 @@ git clone https://github.com/yanmosc/Trabalho-PI-ONG-VoluntariosDaSaude.git
 cd Trabalho-PI-ONG-VoluntariosDaSaude
 
 *🎞️ Apresentações Visuais*
-**▶️ Apresentação no YouTube:**
+-**▶️ Apresentação no YouTube:**
 **[https://youtu.be/CHphF67TO4c]( https://youtu.be/CHphF67TO4c)**
 
 *🎨 Protótipo no Behance:*
-**[[https://youtu.be/CHphF67TO4c](https://www.behance.net/gallery/228732163/Landing-Page-ONG-Voluntarios-da-Saude)]([ https://youtu.be/CHphF67TO4c](https://www.behance.net/gallery/228732163/Landing-Page-ONG-Voluntarios-da-Saude))**
+**[https://www.behance.net/gallery/228732163/Landing-Page-ONG-Voluntarios-da-Saude](https://www.behance.net/gallery/228732163/Landing-Page-ONG-Voluntarios-da-Saude)**
 
 *Equipe*
 Ryan Oliveira Moscardini – Gerente do Projeto
