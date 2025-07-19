@@ -307,7 +307,7 @@ a {
 }
 
 .card-atualizacao {
-  display: contents;
+  display: flex;
   flex-direction: row;
   align-items: center;
   width: 92.5%;
@@ -518,7 +518,7 @@ a {
   }
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .card-atualizacao img {
     display: none;
   }
@@ -527,7 +527,7 @@ a {
     text-align: center;
     padding: 1rem;
   }
-} */
+}
 
 @media screen and (max-width: 768px) {
   .eventos h2,
