@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doação - ONG</title>
+    <!--Link:CSS-->
+    <link rel="stylesheet" href="src/styles/lp.css">
+    <link rel="stylesheet" href="src/styles/footer.css">
+    <link rel="stylesheet" href="src/styles/doacao.css">
+    <link rel="stylesheet" href="src/styles/navbar.css">
+    <!----------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav id="navbar">
+            <a href="index.html"><img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img"></a>
+
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul id="nav_list">
+                <li class="nav-item active"><a href="index.html">Início</a></li>
+                <li class="nav-item"><a href="sobreNos.html">Sobre nós</a></li>
+                <li class="nav-item"><a href="transparencia.html">Transparência</a></li>
+                <li class="nav-item"><a href="fale_conosco.html">Fale Conosco</a></li>
+
+                <li class="desktop-buttons-container">
+                    <div class="navbar-buttons">
+                        <a href="seja_voluntario.html" class="btn-default2">Seja Voluntário</a>
+                        <a href="doacao.html" class="btn-default">Doe Agora</a>
+                    </div>
+                </li>
+
+                <li class="nav-item-mobile"><a href="seja_voluntario.html" class="btn-voluntario-mobile">Seja
+                        Voluntário</a></li>
+                <li class="nav-item-mobile"><a href="doacao.html" class="btn-default">Doe Agora</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <!-- Desenhos decorativos -->
+        <img src="src/img/Morning Sun.png" alt="Sol" class="decor-sun">
+        <img src="src/img/HEART.png" alt="Coração" class="decor-heart">
+        <img src="src/img/Moon and Star.png" alt="Lua" class="decor-moon">
+
+        <section class="donation-wrapper">
+            <h1>DOE E NOS AJUDE</h1>
+            <div class="donation-content">
+                <img src="src/img/nurse_patient_image (1) (1).png" alt="Paciente e enfermeira" class="nurse-image">
+                <p class="donation-description">
+                    Sua doação nos ajuda a trazer cuidado e bem-estar <br>
+                    aos pacientes da Santa Casa de Pedregulho
+                </p>
+            </div>
+
+            <form class="donation-form" action="https://formsubmit.co/ryanoliveiramosc.com.098@gmail.com" method="POST">
+                <label for="frequency">Escolha a periodicidade e o valor da doação:</label>
+                <select id="frequency" name="frequency">
+                    <option value="unica">Única</option>
+                    <option value="mensal">Mensal</option>
+                </select>
+
+                <div class="donation-options">
+                    <button type="button" data-value="10">R$10</button>
+                    <button type="button" data-value="50">R$50</button>
+                    <button type="button" data-value="100">R$100</button>
+                    <button type="button" data-value="200">R$200</button>
+                </div>
+
+                <button type="button" class="donate-other" data-value="custom">DOAR OUTRO VALOR</button>
+
+                <div id="qrcode" style="display: none;">
+                    <img src="" alt="QR Code de Doação" id="qrcode-img" style="max-width: 128px;">
+                </div>
+
+                <div class="mini-form" id="mini-form">
+                    <label for="full-name">Nome completo:</label>
+                    <input type="text" id="full-name" name="full_name" placeholder="Seu nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+
+                    <label for="text">Mensagem: </label>
+                    <input type="text" id="text" name="text" placeholder="Escreva o por que deseja ser mensalista" required>
+
+                    <button type="submit" class="btn-formulario">Enviar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <hr class="footer-divider">
+        <div class="footer-container">
+
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="src/img/Amigos Solidários.png" alt="Logo Amigos Solidários Pedregulho-SP">
+                </a>
+            </div>
+
+            <div class="footer-center">
+                <h3>Santa Casa de Misericórdia de Pedregulho</h3>
+                <p>
+                    R. Ten. Salviana 125<br>
+                    Pedregulho, SP, 14470-000
+                </p>
+                <div class="social-links">
+                    <p class="social-links-title">Acompanhe nossas redes sociais</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        </a>
+                        <a href="https://facebook.com/voluntariospedregulho" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                                alt="Facebook">
+                        </a>
+                        <a href="https://instagram.com/voluntariosdasaude36" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=R.%20Ten.%20Salviana%20125%20Pedregulho%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-copyright">
+            ©2025 Voluntários da Saúde. Todos os direitos Reservados. Desenvolvido por <a href="#" target="_blank">Devs
+                In
+                Action (FATEC)</a>
+        </div>
+    </footer>
+    <script src="src/scripts/doacao.js"></script>
+    <script src="src/scripts/navbar.js"></script>
+    <script src="src/scripts/animacao.js"></script>
+
+</body>
+
+</html>

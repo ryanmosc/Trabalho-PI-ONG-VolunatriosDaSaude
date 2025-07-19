@@ -1,0 +1,312 @@
+/* ===== HEADER/NAVBAR ===== */
+header {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 100;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#nav_logo {
+  font-size: 1.5rem;
+  color: var(--color-primary-6);
+  font-weight: 600;
+}
+
+.nav_img {
+  height: 70px;
+
+  margin-right: 100px;
+}
+
+#nav_list {
+  display: flex;
+  align-items: center;
+  /* Alinha verticalmente os itens da lista */
+  gap: 2rem;
+  list-style: none;
+  width: 100%;
+  /* Faz a lista ocupar toda a largura disponível */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--color-neutral-2);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-item.active a,
+.nav-item a:hover {
+  color: var(--color-primary-6);
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 0.5rem;
+  /* Espaçamento entre os botões (ajuste conforme necessário) */
+
+}
+
+/* Estilo do item ativo na navbar */
+.nav-item a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-6);
+  transition: width 0.3s ease;
+}
+
+.nav-item.active a::after,
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+/* Cor da aba ativa */
+.nav-item.active a {
+  color: var(--color-primary-6);
+  font-weight: bold;
+}
+
+
+.btn-default {
+  background-color: var(--color-primary-6);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-default2 {
+  background-color: white;
+  color: #FF0452;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-default:hover {
+  background-color: var(--color-primary-1);
+}
+
+.btn-default2:hover {
+  color: var(--color-primary-1);
+}
+
+#mobile_btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-neutral-1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#mobile_menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background-color: white;
+}
+
+#mobile_nav_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item-mobile {
+  display: none;
+}
+
+/* Adicione este código ao seu CSS principal */
+
+li.desktop-buttons-container {
+  margin-left: auto;
+  /* <-- Esta é a linha mágica! */
+}
+
+@media screen and (max-width: 1170px) {
+  #nav_list {
+    display: none;
+  }
+
+  .navbar-buttons {
+    display: none;
+  }
+
+  .grid,
+  .mao-banner {
+    display: none;
+  }
+
+  header {
+    box-shadow: 20px;
+  }
+
+  /* .nav_img{
+  margin-left: 120%;
+  } */
+}
+
+/* Adicione esta transição às linhas do menu para uma animação suave */
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: black;
+  margin: 8px;
+  transition: 0.3s;
+  /* Adicionado */
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* Oculta os botões que estão dentro da lista no desktop */
+#nav_list .mobile-buttons {
+  display: none;
+}
+
+
+/* ===== MEDIA QUERY PARA MOBILE ===== */
+/* ================================================= */
+/* ================================== */
+/* MEDIA QUERY PARA MOBILE CORRIGIDO  */
+/* ================================== */
+@media (max-width: 1170px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 1. Esconde os botões do cabeçalho desktop */
+  .navbar-buttons {
+    display: none;
+  }
+
+  /* 2. Esconde os itens normais da navegação */
+  #nav_list .nav-item {
+    display: none;
+  }
+
+  /* 3. Mostra o ícone do menu hambúrguer */
+  .mobile-menu {
+    display: block;
+    z-index: 101;
+  }
+
+  /* 4. Estiliza o menu dropdown (a lista) */
+  #nav_list {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+
+    /* Animação para esconder/mostrar */
+    transform: translateY(-110%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+  }
+
+  /* 5. Quando o menu está ATIVO, ele aparece */
+  #nav_list.active {
+    display: flex;
+    /* Garante que ele seja um flex container */
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* 6. Mostra os itens de navegação dentro do menu ativo */
+  #nav_list.active .nav-item {
+    display: block;
+  }
+
+  /* 7. Mostra e estiliza OS NOVOS BOTÕES dentro do menu ativo */
+  #nav_list.active .nav-item-mobile {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Garante que o botão 'Doe Agora' tenha o estilo correto */
+  #nav_list.active .nav-item-mobile .btn-default {
+    padding: 1rem 2rem;
+  }
+
+  /* Garante que o link 'Seja voluntário' pareça com os outros */
+  #nav_list.active .nav-item-mobile a {
+    padding: 1rem;
+    display: block;
+  }
+
+  /* --- Animação do Ícone para "X" --- */
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+
+  #nav_list.active .nav-item-mobile a.btn-voluntario-mobile {
+    display: block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #FF0452;
+    /* Mesma cor do botão "Seja Voluntário" original */
+    font-weight: 500;
+    text-align: center;
+    border-radius: 0.5rem;
+    /* Adiciona a borda arredondada */
+    border: 2px solid #FF0452;
+    /* Adiciona uma borda */
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #nav_list.active .nav-item-mobile a.btn-voluntario-mobile:hover {
+    background-color: #FF0452; 
+    color: white;
+  }
+}
