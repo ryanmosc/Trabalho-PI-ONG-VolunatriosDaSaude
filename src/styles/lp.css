@@ -500,6 +500,7 @@ a {
   .card-atualizacao{
    align-items: center;
     flex-direction: column;
+    display: contents;
   }
 
   .card-atualizacao img{
@@ -518,7 +519,7 @@ a {
   }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .card-atualizacao img {
     display: none;
   }
@@ -527,7 +528,7 @@ a {
     text-align: center;
     padding: 1rem;
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   .eventos h2,
