@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         
 
-        try {http
+        try {
             const response = await fetch("https://api.voluntariosdasaude.com.br/api/seja_voluntario", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

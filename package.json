@@ -1,0 +1,24 @@
+{
+  "name": "trabalho-pi-ong-volunatriosdasaude",
+  "version": "1.0.0",
+  "description": "Desenvolvida por estudantes do curso de **Análise e Desenvolvimento de Sistemas** da **FATEC Franca**, como parte da Unidade Curricular de Extensão (UCE) em Engenharia de Software, esta **Landing Page moderna, acessível e responsiva** foi criada para a ONG **Voluntários da Saúde**. Nosso objetivo é **ampliar a visibilidade da organização**, fortalecer a comunicação com o público, engajar voluntários organ e doadores, e divulgar ações sociais de forma clara e impactante.",
+  "main": "teste.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanmosc/Trabalho-PI-ONG-VolunatriosDaSaude.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ryanmosc/Trabalho-PI-ONG-VolunatriosDaSaude/issues"
+  },
+  "homepage": "https://github.com/ryanmosc/Trabalho-PI-ONG-VolunatriosDaSaude#readme",
+  "dependencies": {
+    "mysql2": "^3.16.0"
+  }
+}

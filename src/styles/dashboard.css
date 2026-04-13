@@ -16,17 +16,34 @@ body {
     line-height: 1.6;
 }
 
-/* Navegação (assumindo que já tem estilo no site) */
+:root {
+    --primary: #ff0452;
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4cc9f0;
+    --danger-color: #f72585;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+
+    /* Altura da navbar fixa — ajuste se mudar */
+    --navbar-height: 102px;
+}
+
+/* ─── Navegação ──────────────────────────────────────────── */
+
 header {
     width: 100%;
     background-color: white;
     box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
-    z-index: 100;
+    z-index: 200;
     top: 0;
     left: 0;
 }
-
 
 #navbar {
     display: flex;
@@ -44,12 +61,9 @@ header {
 #nav_list {
     display: flex;
     align-items: center;
-
-    /* Alinha verticalmente os itens da lista */
     gap: 2rem;
     list-style: none;
     width: 100%;
-    /* Faz a lista ocupar toda a largura disponível */
 }
 
 .nav-item a {
@@ -57,14 +71,6 @@ header {
     color: var(--gray-color);
     font-weight: 500;
     transition: color 0.3s;
-}
-
-.nav-item.active a,
-.nav-item a:hover {
-    color: var(--primary);
-}
-
-.nav-item a {
     position: relative;
     transition: color 0.3s ease;
 }
@@ -85,60 +91,223 @@ header {
     width: 100%;
 }
 
-/* Cor da aba ativa */
-.nav-item.active a {
+.nav-item.active a,
+.nav-item a:hover {
     color: var(--primary);
+}
+
+.nav-item.active a {
     font-weight: bold;
 }
 
-:root {
-    --primary: #ff0452;
-    --primary-color: #4361ee;
-    --secondary-color: #3f37c9;
-    --success-color: #4cc9f0;
-    --danger-color: #f72585;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
-    --gray-color: #6c757d;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-}
+/* ─── Barra de filtros ───────────────────────────────────── */
 
-
-/* Botão recarregar */
-.refresh-button-container {
+.filter-bar {
     display: flex;
-    justify-content: flex-end;
-    margin: 20vh 4rem 2rem 0;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    /* Empurra para baixo do header fixo */
+    margin-top: var(--navbar-height);
 }
 
-.btn-refresh {
+/* Botão recarregar dentro da filter-bar */
+.filter-bar .btn-refresh {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.18s ease;
+    flex-shrink: 0;
+}
+
+.filter-bar .btn-refresh svg {
+    width: 14px;
+    height: 14px;
+}
+
+.filter-bar .btn-refresh:hover {
+    border-color: #10b981;
+    color: #059669;
+    background: #ecfdf5;
+}
+
+/* Campo de busca */
+.filter-search {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background: #4f46e5;
-    color: white;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
+    gap: 8px;
+    background: #f3f4f6;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 380px;
+    transition: border-color 0.2s;
+}
+
+.filter-search:focus-within {
+    border-color: #4f46e5;
+    background: #fff;
+}
+
+.filter-search svg {
+    width: 16px;
+    height: 16px;
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+.filter-search input {
     border: none;
-    border-radius: 0.75rem;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #111827;
+    width: 100%;
+}
+
+.filter-search input::placeholder {
+    color: #9ca3af;
+}
+
+/* Botão limpar busca */
+.btn-clear-search {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
     cursor: pointer;
-    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
-    transition: all 0.3s;
+    padding: 2px;
+    color: #9ca3af;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
 }
 
-.btn-refresh:hover {
+.btn-clear-search:hover {
+    color: #ef4444;
+    background: #fee2e2;
+}
+
+.btn-clear-search svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Controles de ordenação */
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Botões de filtro */
+.btn-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.btn-filter svg {
+    width: 14px;
+    height: 14px;
+}
+
+.btn-filter:hover {
+    border-color: #4f46e5;
+    color: #4f46e5;
+    background: #eef2ff;
+}
+
+.btn-filter.ativo {
+    border-color: #4f46e5;
+    background: #4f46e5;
+    color: #fff;
+}
+
+.btn-filter.ativo:hover {
     background: #4338ca;
-    transform: translateY(-2px);
+    border-color: #4338ca;
+    color: #fff;
 }
 
-/* Seções de formulários */
+.sort-icon {
+    font-size: 12px;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+.btn-filter.btn-reset {
+    border-color: #e5e7eb;
+    color: #6b7280;
+}
+
+.btn-filter.btn-reset:hover {
+    border-color: #9ca3af;
+    color: #374151;
+    background: #f3f4f6;
+}
+
+/* ─── Card com destaque de busca ─────────────────────────── */
+
+.card-destaque {
+    border: 2px solid #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12) !important;
+}
+
+mark.highlight {
+    background: #fef08a;
+    color: #92400e;
+    border-radius: 3px;
+    padding: 0 2px;
+    font-weight: 600;
+}
+
+.data-envio {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* ─── Seções de formulários ──────────────────────────────── */
+
 .form-section {
     margin-bottom: 4rem;
 }
-
-
 
 .badge {
     margin-left: 1rem;
@@ -221,7 +390,8 @@ header {
     font-size: 1.1rem;
 }
 
-/* Loading e erro */
+/* ─── Loading e erro ─────────────────────────────────────── */
+
 .loading {
     text-align: center;
     padding: 3rem 0;
@@ -241,12 +411,11 @@ header {
     padding: 2rem;
 }
 
-/* Seção de envio de e-mail */
+/* ─── Seção de envio de e-mail ───────────────────────────── */
+
 .email-section {
     margin: 4rem auto;
-    /* centraliza horizontalmente */
     max-width: 1200px;
-    /* tamanho que você queria */
     width: 100%;
     padding: 2.5rem;
     background: white;
@@ -302,7 +471,6 @@ header {
 
 .email-actions {
     margin-top: 1.5rem;
-    text-align: right;
     display: flex;
     justify-content: flex-end;
 }
@@ -328,12 +496,9 @@ header {
     background: linear-gradient(to right, #db2777, #be123c);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .header-title h1 {
-        font-size: 2rem;
-    }
+/* ─── Responsivo ─────────────────────────────────────────── */
 
+@media (max-width: 768px) {
     .cards-grid {
         grid-template-columns: 1fr;
     }
@@ -346,15 +511,25 @@ header {
         gap: 1rem;
         font-size: 0.9rem;
     }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 16px;
+    }
+
+    .filter-search {
+        max-width: 100%;
+    }
+
+    .filter-controls {
+        justify-content: flex-start;
+    }
 }
 
-/* Animação de loading */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
+/* ─── Animação de loading ────────────────────────────────── */
 
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }

@@ -236,7 +236,7 @@
 
       container.innerHTML = '<p class="loading">Carregando atualizações...</p>';
 
-      try {htt
+      try {
         const res = await fetch('https://api.voluntariosdasaude.com.br/api/gerencia/atualizacoes');
         if (!res.ok) throw new Error('Falha na API de atualizações');
         const atualizacoes = await res.json();
