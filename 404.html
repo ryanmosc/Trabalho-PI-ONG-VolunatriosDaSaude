@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ops! Página não encontrada — Amigos Solidários</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    /* ─────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────── */
+    :root {
+      --primary:       #ff0452;
+      --primary-dark:  #c8003f;
+      --primary-glow:  rgba(255, 4, 82, 0.28);
+      --accent:        #4361ee;
+      --accent-light:  rgba(67, 97, 238, 0.10);
+      --bg:            #f9fafb;
+      --bg-card:       #ffffff;
+      --bg-muted:      #f3f4f6;
+      --text:          #1f2937;
+      --text-muted:    #6b7280;
+      --text-light:    #9ca3af;
+      --border:        #e5e7eb;
+      --shadow-sm:     0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:     0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+      --shadow-lg:     0 10px 40px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.06);
+      --radius-sm:     10px;
+      --radius-md:     16px;
+      --radius-lg:     24px;
+      --font:          'Plus Jakarta Sans', sans-serif;
+      --transition:    0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .navbar__logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 17px;
+      box-shadow: 0 3px 10px var(--primary-glow);
+      flex-shrink: 0;
+    }
+
+    .navbar__logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .navbar__logo-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .navbar__logo-sub {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .navbar__nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .navbar__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .navbar__link:hover {
+      background: var(--bg-muted);
+      color: var(--text);
+    }
+
+    .navbar__link i { font-size: 13px; }
+
+    /* ─────────────────────────────────────────
+       BACKGROUND DECOR
+    ───────────────────────────────────────── */
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-decor__blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.38;
+    }
+
+    .bg-decor__blob--1 {
+      width: 540px;
+      height: 540px;
+      background: radial-gradient(circle, rgba(255,4,82,0.18) 0%, transparent 70%);
+      top: -120px;
+      right: -100px;
+    }
+
+    .bg-decor__blob--2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(67,97,238,0.14) 0%, transparent 70%);
+      bottom: -80px;
+      left: -80px;
+    }
+
+    .bg-decor__dots {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(0,0,0,0.055) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* ─────────────────────────────────────────
+       MAIN
+    ───────────────────────────────────────── */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 56px 48px 52px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      animation: fadeInUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    /* ─────────────────────────────────────────
+       ICON AREA
+    ───────────────────────────────────────── */
+    .icon-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .icon-ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,4,82,0.10) 0%, rgba(67,97,238,0.08) 100%);
+      border: 2px solid rgba(255,4,82,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: floating 3.6s ease-in-out infinite;
+    }
+
+    .icon-ring i {
+      font-size: 42px;
+      background: linear-gradient(135deg, var(--primary) 0%, #ff6b9d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .icon-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent) 0%, #7b8ef0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px solid white;
+      box-shadow: 0 2px 8px rgba(67,97,238,0.30);
+    }
+
+    .icon-badge i {
+      font-size: 11px;
+      color: #fff;
+    }
+
+    /* ─────────────────────────────────────────
+       ERROR CODE
+    ───────────────────────────────────────── */
+    .error-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(255,4,82,0.08) 0%, rgba(255,4,82,0.04) 100%);
+      border: 1px solid rgba(255,4,82,0.20);
+      border-radius: 100px;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+    }
+
+    .error-code__dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .error-code__label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─────────────────────────────────────────
+       TITLE & DESCRIPTION
+    ───────────────────────────────────────── */
+    .error-title {
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+      margin-bottom: 12px;
+    }
+
+    .error-title span {
+      background: linear-gradient(135deg, var(--primary) 0%, #ff6b9d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .error-subtitle {
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .error-hint {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .error-hint .heart {
+      color: var(--primary);
+      display: inline-block;
+      animation: heartbeat 1.4s ease-in-out infinite;
+    }
+
+    /* ─────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────── */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      margin: 0 auto 30px;
+    }
+
+    /* ─────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────── */
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn:active { transform: scale(0.97) !important; }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px var(--primary-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn--primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--primary-glow), 0 0 0 4px rgba(255,4,82,0.12);
+    }
+
+    .btn--primary:hover::after { opacity: 1; }
+
+    .btn--secondary {
+      background: var(--bg-muted);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn--secondary:hover {
+      transform: translateY(-2px);
+      background: white;
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn i { font-size: 13px; }
+
+    /* ─────────────────────────────────────────
+       FOOTER STRIP
+    ───────────────────────────────────────── */
+    .card-footer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--bg-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .card-footer__text {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .card-footer__link {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .card-footer__link:hover { color: var(--primary); text-decoration: underline; }
+
+    /* ─────────────────────────────────────────
+       FOOTER PAGE
+    ───────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-light);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer span { color: var(--primary); }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.22); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.18); }
+      56%       { transform: scale(1); }
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .card {
+        padding: 40px 24px 36px;
+        border-radius: var(--radius-md);
+      }
+
+      .navbar__logo-sub { display: none; }
+
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+        padding: 13px 20px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .card { padding: 32px 18px 28px; }
+      .icon-ring { width: 84px; height: 84px; }
+      .icon-ring i { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="bg-decor__blob bg-decor__blob--1"></div>
+    <div class="bg-decor__blob bg-decor__blob--2"></div>
+    <div class="bg-decor__dots"></div>
+  </div>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+
+      <a href="https://voluntariosdasaude.com.br" class="navbar__logo" aria-label="Amigos Solidários — Página inicial">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-title">Amigos Solidários</span>
+          <span class="navbar__logo-sub">Voluntários da Saúde</span>
+        </div>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <a href="https://voluntariosdasaude.com.br" class="navbar__link">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <main class="main" role="main">
+    <article class="card" aria-labelledby="error-heading">
+
+      <!-- Icon -->
+      <div class="icon-wrap" aria-hidden="true">
+        <div class="icon-ring">
+          <i class="fa-solid fa-compass-slash"></i>
+        </div>
+        <div class="icon-badge">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+
+      <!-- Error code pill -->
+      <div class="error-code" role="status" aria-label="Código de erro 404">
+        <div class="error-code__dot"></div>
+        <span class="error-code__label">Erro 404</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="error-title" id="error-heading">
+        Ops, você não deveria<br/>
+        <span>estar aqui.</span>
+      </h1>
+
+      <p class="error-subtitle">
+        Esta página não existe ou você não tem<br class="break-md"/>
+        permissão para acessá-la.
+      </p>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="error-hint">
+        Mas não se preocupe — vamos te ajudar<br class="break-md"/>
+        a encontrar o caminho certo.&nbsp;<span class="heart" aria-hidden="true">💙</span>
+      </p>
+
+      <!-- Actions -->
+      <div class="actions">
+        <a href="https://voluntariosdasaude.com.br" class="btn btn--primary">
+          <i class="fa-solid fa-house" aria-hidden="true"></i>
+          Voltar para o início
+        </a>
+        <a href="mailto:contato@voluntariosdasaude.com.br" class="btn btn--secondary">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          Entrar em contato
+        </a>
+      </div>
+
+      <!-- Card footer -->
+      <div class="card-footer">
+        <span class="card-footer__text">Precisa de ajuda?</span>
+        <a href="https://voluntariosdasaude.com.br" class="card-footer__link">
+          Acesse nossa página principal
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    © 2025 Amigos Solidários · Feito com <span aria-label="amor">♥</span> pelos Voluntários da Saúde
+  </footer>
+
+  <script>
+    // Detect error type from URL/query string and update dynamically
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const code   = params.get('code') || '404';
+
+      const configs = {
+        '403': {
+          code:     'Erro 403',
+          title:    'Acesso não permitido.',
+          subtitle: 'Você não tem permissão para visualizar esta página.',
+          icon:     'fa-solid fa-lock',
+        },
+        '500': {
+          code:     'Erro 500',
+          title:    'Algo deu errado.',
+          subtitle: 'Nossos servidores estão com um problema. Já estamos trabalhando nisso!',
+          icon:     'fa-solid fa-triangle-exclamation',
+        },
+        '404': {
+          code:     'Erro 404',
+          title:    'Ops, você não deveria estar aqui.',
+          subtitle: 'Esta página não existe ou você não tem permissão para acessá-la.',
+          icon:     'fa-solid fa-compass-slash',
+        },
+      };
+
+      const cfg = configs[code] || configs['404'];
+
+      // Update pill label
+      document.querySelector('.error-code__label').textContent = cfg.code;
+
+      // Update title
+      const titleEl = document.getElementById('error-heading');
+      titleEl.innerHTML = cfg.title.replace(/(aqui\.|aqui|errado\.|isso!|nisso!)/g, '<span>$1</span>');
+
+      // Update subtitle
+      document.querySelector('.error-subtitle').textContent = cfg.subtitle;
+
+      // Update icon
+      const iconEl = document.querySelector('.icon-ring i');
+      iconEl.className = cfg.icon;
+    })();
+  </script>
+</body>
+</html>
