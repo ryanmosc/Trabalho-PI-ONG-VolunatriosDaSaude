@@ -129,6 +129,49 @@ a {
   color: var(--color-primary-6);
 }
 
+/* ===== Termos de Uso ===== */
+.modal {
+  display: flex; /* já deixa pronto pra centralizar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-conteudo {
+  background: white;
+  padding: 25px;
+  width: 400px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.btn-aceitar {
+  background-color: var(--color-primary-6);
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-aceitar:hover{
+  background-color: var(--color-primary-1);
+  color: var(--color-neutral-2);
+}
+
 /* ===== SHAPE DE FUNDO ===== */
 .shape {
   background-color: var(--color-primary-2);
@@ -155,22 +198,22 @@ a {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, clamp(60px, 7vw, 150px));
-  grid-template-rows: repeat(3, clamp(60px, 7vw, 150px));
-  gap: clamp(4px, 0.5vw, 10px);
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(3, 150px);
+  gap: 10px;
 }
 
 .square {
-  width: clamp(60px, 7vw, 150px);
-  height: clamp(60px, 7vw, 150px);
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
   z-index: 1;
 }
 
 .mao-banner {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 43.8%;
+  left: 41.9%;
   transform: translate(-50%, -50%);
   z-index: 2;
   height: clamp(200px, 35vw, 540px);
@@ -328,6 +371,25 @@ a {
 }
 
 /* ===== EVENTOS E ATUALIZAÇÕES — INTOCADOS ===== */
+.btn-zap {
+  width: 100px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+}
+
+/* ==== btn-zap responsividade ==== */
+@media screen and (max-width: 1170px){
+  .btn-zap {
+    width: 20vw;
+    position: fixed;
+    right: 2vw;
+    bottom: 17vw;
+    z-index: 100;
+  }
+}
+
 .eventos-atualizacoes {
   padding: 4rem 2rem;
   max-width: 1100px;

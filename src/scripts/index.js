@@ -1,10 +1,20 @@
+function aceitarTermos() {
+  localStorage.setItem("termosAceitos", "true");
+  document.getElementById("modal-termos").classList.add("hidden");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem("termosAceitos")) {
+    document.getElementById("modal-termos").classList.remove("hidden");
+  }
+
   // ============ 1. ANIMAÇÃO DO HERO (BLOCO 1) ============
   const heroTitle = document.querySelector('#home .title');
   const heroDescription = document.querySelector('#home .description');
   const heroButtons = document.querySelector('#cta_buttons');
   const heroImage = document.querySelector('.mao-banner');
   const squares = document.querySelectorAll('.square');
+
 
   // Animação do texto e botões
   gsap.from([heroTitle, heroDescription, heroButtons], {
@@ -97,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         start: 'top 75%'
       },
       duration: 0.8,
-      x: index % 2 === 0 ? -30 : 30, 
+      x: index % 2 === 0 ? -30 : 30,
       opacity: 0,
       delay: index * 0.1,
       ease: 'power3.out'
@@ -147,29 +157,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     const eventos = await response.json();
     const eventoConteudo = document.getElementById('evento-conteudo');
-    
+
     // Clear existing content
     eventoConteudo.innerHTML = '';
-    
+
     // Create event cards dynamically
     eventos.forEach(evento => {
       const eventoCard = document.createElement('div');
       eventoCard.className = 'evento-card';
-      
+
       const img = document.createElement('img');
       img.src = evento.imagem;
       img.alt = evento.texto;
       img.onerror = () => {
         img.src = 'adicionais/img_eventos/placeholder.png'; // Fallback image if URL fails
-      }; 
-      
+      };
+
       const texto = document.createElement('p');
       texto.textContent = evento.texto;
-      
+
       const data = document.createElement('span');
       data.className = 'data';
       data.textContent = new Date(evento.dataCriacao).toLocaleDateString('pt-BR');
-      
+
       eventoCard.appendChild(img);
       eventoCard.appendChild(texto);
       eventoCard.appendChild(data);

@@ -100,3 +100,35 @@ textarea {
   text-decoration: none;
   color: #000;
 }
+
+/* === Fale conosco === */
+/* === Responsividade === */
+
+@media screen and (max-width: 976px){
+  .contact-image img{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 360px) and (max-width: 450px){
+
+  .contact-container{
+    width: 100%;
+    margin-top: 70px;
+  }
+
+  input, textarea{
+    padding:6px;
+    font-size: 10px;
+    width: 93%;
+  }
+
+  .contact-form-area h1 {
+    font-size: 25px;
+  }
+
+  .contact-section {
+    padding: 70px 20px;
+  }
+}

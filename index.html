@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +24,7 @@
       font-style: italic;
       font-size: 1.1em;
     }
+
     .erro {
       text-align: center;
       padding: 40px 20px;
@@ -34,6 +36,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav id="navbar">
@@ -54,13 +57,32 @@
             <a href="doacao.html" class="btn-default">Doe Agora</a>
           </div>
         </li>
-        <li class="nav-item-mobile"><a href="seja_voluntario.html" class="btn-voluntario-mobile">Seja Voluntário</a></li>
+        <li class="nav-item-mobile"><a href="seja_voluntario.html" class="btn-voluntario-mobile">Seja Voluntário</a>
+        </li>
         <li class="nav-item-mobile"><a href="doacao.html" class="btn-default">Doe Agora</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="content">
+    <!--Termos de Uso-->
+    <div id="modal-termos" class="modal">
+      <div class="modal-conteudo">
+        <h2>Termo de Responsabilidade</h2>
+
+        <p>
+          Ao utilizar este site, você concorda que as informações aqui apresentadas possuem caráter informativo e
+          institucional.
+          A ONG Voluntários da Saúde busca manter os dados sempre atualizados, mas não se responsabiliza por eventuais
+          erros, omissões ou interpretações indevidas.
+
+          Ao prosseguir, você declara estar ciente e de acordo com estes termos.
+        </p>
+
+        <button onclick="aceitarTermos()" class="btn-aceitar">Aceitar</button>
+      </div>
+    </div>
+
     <!-- BLOCO 1: Hero -->
     <section id="home">
       <div id="cta">
@@ -116,7 +138,12 @@
       </div>
     </section>
 
+
     <!-- BLOCO 3: Eventos e Atualizações -->
+    <a href="https://wa.me/5516981759831?text=Olá,%20gostaria%20de%20mais%20informações!" target="_blank">
+      <img src="src/img/ZapLogoBranco-removebg-preview.png" alt="zap" class="btn-zap">
+    </a>
+
     <section class="eventos-atualizacoes">
       <div class="eventos">
         <h2>Próximos Eventos</h2>
@@ -173,7 +200,8 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
             <a href="https://facebook.com/voluntariospedregulho" target="_blank" rel="noopener noreferrer">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                alt="Facebook">
             </a>
             <a href="https://instagram.com/voluntariosdasaude36" target="_blank" rel="noopener noreferrer">
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
@@ -183,13 +211,16 @@
       </div>
       <div class="footer-right">
         <div class="map-container">
-          <iframe src="https://maps.google.com/maps?q=R.%20Ten.%20Salviana%20125%20Pedregulho%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://maps.google.com/maps?q=R.%20Ten.%20Salviana%20125%20Pedregulho%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
     <hr class="footer-divider">
     <div class="footer-copyright">
-      ©2025 Voluntários da Saúde. Todos os direitos Reservados. Desenvolvido por <a href="#" target="_blank">Devs In Action (FATEC)</a>
+      ©2025 Voluntários da Saúde. Todos os direitos Reservados. Desenvolvido por <a href="#" target="_blank">Devs In
+        Action (FATEC)</a>
     </div>
   </footer>
 
@@ -208,6 +239,7 @@
         carregarAtualizacoes()
       ]);
     });
+
 
     async function carregarEventos() {
       const container = document.getElementById('evento-conteudo');
@@ -252,17 +284,17 @@
     }
 
     function criarCardEvento(evento) {
-  const card = document.createElement('div');
-  card.className = 'evento-card';
+      const card = document.createElement('div');
+      card.className = 'evento-card';
 
-  const img = document.createElement('img');
-  img.src = evento.imagem;
-  img.alt = "Evento";
-  img.onerror = () => img.src = 'adicionais/img_eventos/placeholder.png';
+      const img = document.createElement('img');
+      img.src = evento.imagem;
+      img.alt = "Evento";
+      img.onerror = () => img.src = 'adicionais/img_eventos/placeholder.png';
 
-  card.append(img);
-  return card;
-}
+      card.append(img);
+      return card;
+    }
 
 
     function criarCardAtualizacao(atualizacao) {
@@ -289,4 +321,5 @@
     }
   </script>
 </body>
+
 </html>
