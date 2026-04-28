@@ -168,5 +168,69 @@
     <script src="src/scripts/transparencia.js"></script>
     <script src="src/scripts/animacao.js"></script>
 </body>
+<style>
+    .doc-card-novo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 32px;
+    background: #fff;
+    border: 1.5px solid #ccc;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.doc-card-novo:hover {
+    border-color: #1D9E75;
+    background: #E1F5EE;
+    transform: translateY(-2px);
+}
+.doc-card-novo:active { transform: scale(0.98); }
+
+.icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background: #E1F5EE;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+.doc-card-novo:hover .icon-wrapper { background: #9FE1CB; }
+.icon-wrapper svg { width: 22px; height: 22px; }
+
+.doc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.doc-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.doc-name { font-size: 15px; font-weight: 500; }
+
+.download-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 8px;
+    padding: 5px 12px;
+    background: #1D9E75;
+    color: #E1F5EE;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+}
+.download-badge svg { width: 13px; height: 13px; }
+</style>
 
 </html>
